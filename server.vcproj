@@ -4,7 +4,7 @@
 	Version="9,00"
 	Name="server"
 	ProjectGUID="{43E0911E-9089-4B5E-A8C4-C55F77D7DC5A}"
-	RootNamespace="server"
+	RootNamespace="module"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
@@ -20,7 +20,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionPath)\..\build\$(ProjectName)\$(ConfigurationName)"
 			IntermediateDirectory="$(SolutionPath)\..\intermediate\$(ProjectName)\$(ConfigurationName)"
-			ConfigurationType="4"
+			ConfigurationType="1"
 			CharacterSet="2"
 			>
 			<Tool
@@ -61,11 +61,18 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).lib"
+				Name="VCLinkerTool"
+				AdditionalOptions="$(SolutionPath)\..\build\ed\$(ConfigurationName)\ed_$(ConfigurationName).lib"
+				OutputFile="$(OutDir)\$(SolutionName)_$(ProjectName)_$(ConfigurationName).exe"
+				GenerateDebugInformation="true"
+				GenerateMapFile="false"
+				SubSystem="1"
 			/>
 			<Tool
 				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -77,6 +84,9 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -84,7 +94,7 @@
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionPath)\..\build\$(ProjectName)\$(ConfigurationName)"
 			IntermediateDirectory="$(SolutionPath)\..\intermediate\$(ProjectName)\$(ConfigurationName)"
-			ConfigurationType="4"
+			ConfigurationType="1"
 			CharacterSet="2"
 			WholeProgramOptimization="1"
 			>
@@ -134,11 +144,20 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)\$(ProjectName)_$(ConfigurationName).lib"
+				Name="VCLinkerTool"
+				AdditionalOptions="$(SolutionPath)\..\build\ed\$(ConfigurationName)\ed_$(ConfigurationName).lib"
+				OutputFile="$(OutDir)\$(SolutionName)_$(ProjectName)_$(ConfigurationName).exe"
+				SubSystem="1"
+				LargeAddressAware="1"
+				OptimizeForWindows98="0"
+				SetChecksum="true"
+				TargetMachine="0"
 			/>
 			<Tool
 				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -150,6 +169,9 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -157,6 +179,10 @@
 	<References>
 	</References>
 	<Files>
+		<File
+			RelativePath=".\main.cpp"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
